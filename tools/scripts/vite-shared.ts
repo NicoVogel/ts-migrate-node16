@@ -104,7 +104,7 @@ export function test(): Plugin {
             dir: '../../node_modules/.vitest',
           },
           environment: 'node',
-          include: ['src/**/*.{spec}.{ts,mts}'],
+          include: ['src/**/*.spec.{ts,mts}'],
         },
       };
     },
