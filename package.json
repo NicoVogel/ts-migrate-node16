@@ -3,11 +3,28 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "lint-non-code-files": "prettier --check \"**/*.{json,yaml,yml,md}\"",
+    "format-non-code-files": "prettier --write \"**/*.{json,yaml,yml,md}\""
   },
   "private": true,
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "nx": "16.7.4"
+    "nx": "16.7.4",
+    "@nx/js": "16.7.4",
+    "@nx/linter": "16.7.4",
+    "@nx/vite": "16.7.4",
+    "@nx/workspace": "16.7.4",
+    "@nx/eslint-plugin": "16.7.4",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "eslint": "~8.46.0",
+    "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "prettier": "^3.0.0",
+    "tslib": "^2.6.1",
+    "typescript": "~5.1.3"
   }
 }
