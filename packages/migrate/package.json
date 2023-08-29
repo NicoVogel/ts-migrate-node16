@@ -1,9 +1,19 @@
 {
   "name": "@ts-migrate/migrate",
   "version": "0.0.1",
-  "dependencies": {},
   "main": "./index.js",
   "module": "./index.mjs",
   "typings": "./index.d.ts",
-  "type": "module"
+  "type": "module",
+  "files": [
+    "migrate.*",
+    "**/*.d.ts"
+  ],
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "types": "./index.d.ts",
+      "require": "./index.cjs"
+    }
+  }
 }
