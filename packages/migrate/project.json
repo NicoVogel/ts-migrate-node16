@@ -1,0 +1,50 @@
+{
+  "name": "migrate",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/migrate/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/migrate",
+        "skipTypeCheck": true
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc --noEmit --project libs/components/tsconfig.lib.json"
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs migrate {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/packages/migrate"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/migrate/**/*.ts",
+          "packages/migrate/package.json"
+        ]
+      },
+      "configurations": {
+        "format": {
+          "fix": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
